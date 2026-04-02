@@ -18,7 +18,7 @@ INTRODUCING DATA
 The data for the laboratory practice must be taken into an excel file, and this will read it.
 """
 #Excel file location
-excel_path_user="C:/Users/Andres/Desktop/p5/datap05_bomba_calor2.xlsx"
+excel_path_user="p5\datap05_bomba_calor2.xlsx"
 data_raw=pd.read_excel(excel_path_user,sheet_name="Medidas")
 t_f_ufloat = unumpy.uarray(data_raw["t_f"],data_raw["u_c (T)"])
 t_c_ufloat= unumpy.uarray(data_raw["t_c"],data_raw["u_c (T)"])
