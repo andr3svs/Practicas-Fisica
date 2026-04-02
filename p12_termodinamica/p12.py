@@ -58,6 +58,9 @@ theta2_nominal,theta2_error= separate_uncertainties(theta2)
 ### Mean temperature calculation    
 theta1_mean = np.mean(theta1_nominal)
 theta2_mean = np.mean(theta2_nominal)
+### Amplitude estimation
+theta1_amplitude_estimate = (np.max(theta1_nominal) - np.min(theta1_nominal)) / 2
+theta2_amplitude_estimate = (np.max(theta2_nominal) - np.min(theta2_nominal)) / 2
 """"
 Plotting
 """
@@ -80,7 +83,7 @@ plt.show()
 3.Fitting the data
 """
 # Initial guess for the parameters for theta1: Temperature_mean, amplitude, period, phase_shift
-initial_guess_theta1 = [theta1_mean, 0.01, 540, 0.01]  # You can adjust these values based on your data
+initial_guess_theta1 = [theta1_mean, theta1_amplitude_estimate, 540, 0.01]  # You can adjust these values based on your data
 # Fit the curve to theta1 data
 popt_theta1, pcov_theta1 = curve_fit(calculate_theta, tiempo_nominal, theta1_nominal, p0=initial_guess_theta1)
 # Extract the fitted parameters for theta1
@@ -90,7 +93,7 @@ perr_theta1 = np.sqrt(np.diag(pcov_theta1))
 A_err_theta1, amp_err_theta1, tau_err_theta1, phase_err_theta1 = perr_theta1
 
 # Initial guess for the parameters for theta2: Temperature_mean, amplitude, period, phase_shift
-initial_guess_theta2 = [theta2_mean, 0.01, 540, 0.01]  # You can adjust these values based on your data
+initial_guess_theta2 = [theta2_mean, theta2_amplitude_estimate, 540, 0.01]  # You can adjust these values based on your data
 # Fit the curve to theta2 data
 popt_theta2, pcov_theta2 = curve_fit(calculate_theta, tiempo_nominal, theta2_nominal, p0=initial_guess_theta2)
 # Extract the fitted parameters for theta2
@@ -121,10 +124,10 @@ phase1=ufloat(phase_theta1, phase_err_theta1)
 phase2=ufloat(phase_theta2, phase_err_theta2)
 disphase=abs(phase1-phase2)
 
-m_parameter=abs(np.ln(amp1/amp2))/distance_between_sensors
-h_parameter=distance_between_sensors/disphase
+m_parameter=abs(unumpy.log(amp1/amp2))/distance_between_sensors
+h_parameter=disphase/distance_between_sensors
 
-K_exp=(specific_heat_capacity*density_aluminum*np.pi())/(h_parameter*m_parameter*540)    #540 is the period of the wave, which is a fixed parameter in this experiment
+K_exp=(specific_heat_capacity*density_aluminum*np.pi)/(h_parameter*m_parameter*(tau_fit_theta1+tau_fit_theta2)/2) #we use the average period    #540 is the period of the wave, which is a fixed parameter in this experiment
 lambda_exp=K_exp*radius_of_cylinder*(h_parameter**2-m_parameter**2 )/2.0
 
 # Write all parameters to a LaTeX-formatted txt file
