@@ -1,0 +1,14 @@
+{
+    "fortran.linter.compiler": "gfortran",
+    "fortran.linter.includePaths": [
+        "${workspaceFolder}"
+    ],
+    "files.associations": {
+        "*.f90": "fortran",
+        "*.f": "fortran",
+        "*.F90": "fortran",
+        "*.F": "fortran"
+    },
+    "fortran.formatting.formatter": "findent",
+    "fortran.preferredCase": "lowercase"
+}
