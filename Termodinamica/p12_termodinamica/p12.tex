@@ -1,0 +1,229 @@
+
+% PREAMBLE
+%===============================%
+\documentclass[a4paper,11pt]{article}
+% Imported packages
+\usepackage[a4paper,top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry} % To control page margins
+\usepackage[utf8]{inputenc} % Characters
+\usepackage[spanish]{babel} % Spanish language
+\usepackage{csquotes} % Package recommended if using babel
+\usepackage{float}
+\usepackage{amsmath} % Required to write mathematical formulas
+\usepackage{graphicx} % Required to include graphics
+\usepackage{hyperref} % To manage links and hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=magenta,
+    pdftitle={Laboratory report},
+    }
+% Added subcaption package for figure mosaics
+\usepackage{subcaption} 
+% Added siunitx for proper unit formatting (good practice)
+\usepackage{siunitx}
+
+% References
+\usepackage[style=numeric,sorting=none]{biblatex}
+\addbibresource{references.bib} 
+
+% Document data
+\title{Práctica \numeroPractica: \tituloPractica}
+\author{\authorName \\ Group \groupNumber}
+\date{Sesión de Laboratorio: \fechaPractica \\ Entrega del informe: \fechaEntrega}
+
+%===============================%
+% DOCUMENT
+%===============================%
+\begin{document}
+
+%-------------------------------%
+% Document title
+\maketitle
+
+%-------------------------------%
+% Abstract
+\begin{abstract}
+[Descripción breve del experimento, objetivos y resultados principales.]
+\end{abstract}
+
+\tableofcontents
+\newpage
+%====================================================%
+% [Nombre del Tema]                                  %
+% Práctica \numeroPractica                           %
+% \tituloPractica                                    %
+%====================================================%
+
+% Datos de la práctica (modificar según corresponda)
+\def\numeroPractica{XX}                                    % Número de práctica
+\def\tituloPractica{Título de la Práctica}                 % Título de la práctica
+\def\authorName{Tu Nombre}                                 % Nombre del autor
+\def\groupNumber{Tu Grupo}                                 % Número del grupo
+\def\fechaPractica{dd/mm/aaaa}                             % Fecha de realización de la práctica
+\def\fechaEntrega{dd/mm/aaaa}                              % Fecha de entrega del informe
+
+% Resultados
+\section{Resultados}
+
+\subsection{Sección de Resultados 1}
+[Describe los resultados experimentales aquí. Incluye figuras, tablas y análisis.]
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{placeholder_figure.png}
+    \caption{Descripción de la figura}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Sección de Resultados 2}
+[Continúa con más resultados y análisis.]
+
+% Conclusiones
+\section{Conclusiones}
+[Resume las conclusiones del experimento.]
+
+% Referencias
+\printbibliography
+
+\end{document}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Isoterma (\si{\celsius}) & $m$ & $n$ (\si{\pascal\meter\cubed}) & $n_{\text{mol}}$ (\si{\mole}) & $R^2$ \\ \hline\hline
+        24.4 & $(-6.13 \pm 0.42)\times10^{-6}$ & $20.33 \pm 0.88$ & $0.00822 \pm 0.00036$ & 0.9819 \\ \hline
+        33.7 & $(-1.41 \pm 0.14)\times10^{-6}$ & $11.33 \pm 0.35$ & $0.00444 \pm 0.00014$ & 0.9418 \\ \hline
+        43.4 & $(-2.032 \pm 0.096)\times10^{-6}$ & $13.04 \pm 0.27$ & $0.00495 \pm 0.00010$ & 0.9762 \\ \hline
+    \end{tabular}
+    \caption{Parámetros del ajuste lineal $pv=mp+n$ para cada isoterma.}
+    \label{tab:ajuste-gas-ideal}
+\end{table}
+
+Los resultados muestran pendientes pequeñas y coeficientes pearson altos, especialmente en las isotermas de mayor temperatura. En consecuencia, dentro del rango analizado y fuera de la región de coexistencia líquido-vapor, el comportamiento observado es compatible con una aproximación de gas ideal.
+De igual manera, podemos percatarnos de los resultados obtenidos en el fit hecho y vemos que nos salen unos coeficientes de Pearson altos, siendo el menor de los tres $R^2=0.9418$ y el mayor $R^2=0.9819$.
+Por lo tanto los resultados obtenidos que es casi seguro que existe una correlación descrita por el modelo, como no se disponen de datos como el número de moles de la sustancia, no se pueden comparar estos datos con los tabulados.
+
+
+\subsection{Calor latente de vaporización del \texorpdfstring{$SF_6$}{SF6}}
+
+En las zonas en que las isotermas son planas (la ausencia de esta zona plana caracteriza el punto crítico) se da la coexistencia de las fases líquida y gaseosa y la presión sólo depende de la temperatura. Esta dependencia viene descrita por la llamada curva de presión de vapor.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{IMG_0724.png}
+    \caption{Representación gráfica del lnP en función de $1/T$.}
+    \label{fig:lnP-1/T}
+    
+\end{figure}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        $T$ (\si{\celsius}) & $p_{\mathrm{sat}}$ estimada (\si{\pascal}) \\ \hline\hline
+        24.4 & $2.35\times10^{6}$ \\ \hline
+        29.0 & $2.625\times10^{6}$ \\ \hline
+        33.7 & $2.90\times10^{6}$ \\ \hline
+        38.6 & $3.05\times10^{6}$ \\ \hline
+        43.4 & $3.80\times10^{6}$ \\ \hline
+    \end{tabular}
+    \caption{Presiones de saturación estimadas a partir de la zona plana de las isotermas.}
+    \label{tab:psat}
+\end{table}
+
+A partir del ajuste lineal de $\ln p$ frente a $1/T$, se obtienen los siguientes parámetros: pendiente $m=-1280\pm210$, intercepto $C=18.99$ y $R^2=0.9014$. Con ello, el calor latente de vaporización resulta $L_v=(10.6\pm1.8)\,\si{\kilo\joule\per\mole}$.
+Según \cite{guder2009reference} el calor de vaporación resulta $L_v=(20.7)\,\si{\kilo\joule\per\mole}$.
+Esta discrepancia se puede explicar sabiendo que por la teoría de la termodinámica este valor es función de la temperatura en una ecuación diferencial conocida como Ecuación de Clayperion.
+
+
+Por tanto, al hacer un fit estamos tomando un promedio de temperaturas y si admitimos que este calor según \cite{guder2009reference} desciende con la temperatura, al tomar varios valores estamos haciendo una especie de promedio, que aumenta el valor.
+
+
+No obstante, como estos coeficientes suelen ser muy suceptibles a las condiciones del laboratorio puede existir un error no despreciable por tratarse de un dispositivo en el que probablemente el vacío no sea perfecto, así como la válvula que regula la presión, puede presentar también incertidumbres.
+
+
+Además, el valor teórico debería de ser 0 en el punto crítico pero esto no se cumple en nuestro ajuste por el siguiente motivo, el ajuste no tiene en cuenta que el calor latente de vaporización no es constante por el motivo anterior.
+
+Para estimar la presión de saturación se utilizó un criterio gráfico sobre la región plana de la figura \ref{clayperion}. Para $48.8\,\si{\celsius}$ no se define presión de vapor en este contexto, ya que por encima del punto crítico desaparece la coexistencia de fases.
+
+Si nos fijamos en el coeficiente de Pearson, $R^2$, nos damos cuenta que aunque es más bajo que el resto de los obtenidos durante la práctica, también es un buen resultado pues es cercano a 1. 
+Todo esto nos indican que nuestros resultados se ajustan a la teoría.
+
+% Cuestiones
+\section{Cuestiones}
+
+\subsection{Consulta en la bibliografía el concepto de opalescencia crítica}
+El concepto de opalescencia crítica hace referencia al aumento de scattering, que se define como el proceso mediante el cual, cuando una onda de radiación se encuentra con una partícula, esta se dispersa y emite energía en todas las direcciones. La magnitud de este efecto depende del tamaño de la partícula que se encuentre la radiación.
+El scattering que se da debido a moléculas lleva el nombre del científico que identificó este fenómeno por primera vez en el siglo XIX, Rayleigh, y tiene una dependencia de $\lambda^{-4}$.
+Este efecto fue explicado por Einstein, usando ideas relacionadas con el movimiento browniano y la mecánica estadística en 1910. \cite{Gopal2000}
+
+
+
+% Conclusiones
+\section{Conclusiones}
+En esta práctica se ha observado la transición de fase líquido-vapor del hexafluoruro de azufre (SF$_6$) mediante la construcción de su diagrama de Clapeyron. 
+En primer lugar, se verificó que el fluido obedece el modelo de gas ideal fuera de la región de coexistencia, respaldado por ajustes lineales con coeficientes de Pearson ($R^2$) muy próximos a la unidad.
+Al analizar la evolución de las zonas planas de las isotermas, se estimó de forma gráfica que el punto crítico del sistema se sitúa en torno a una temperatura de 45\,$^{\circ}$C y una presión de 3.8\,MPa. Estas estimaciones demuestran una gran exactitud experimental, ya que concuerdan de manera excelente con los valores teóricos 45.51\,$^{\circ}$C y 3.749\,MPa.
+Finalmente, mediante la aplicación de la aproximación de Clausius-Clapeyron a las presiones de saturación estimadas, se confirmó la dependencia lineal esperada entre el logaritmo de la presión y el inverso de la temperatura. A partir de la pendiente de este ajuste, se determinó que el calor latente de vaporización del fluido es de $10.6 \pm 1.8$\,kJ/mol. En conjunto, los resultados se ajustan con éxito a los modelos teóricos.
+
+
+% Anexos
+
+\section*{Anexo 1: Cálculo de Incertidumbres}
+
+\subsection*{1. Medidas Directas (Incertidumbre Tipo B)}
+Para las magnitudes calculadas a partir de las medidas directas, la incertidumbre se calcula como:
+
+$$\Delta f = \sqrt{\left( \frac{\partial f}{\partial x} \Delta x \right)^2 + \left( \frac{\partial f}{\partial y} \Delta y \right)^2}$$
+
+A continuación, se detalla el desarrollo analítico de las derivadas parciales para las magnitudes indirectas utilizadas en la práctica 15:
+
+\subsubsection*{a) Producto presión-volumen ($pv$)}
+
+Para comprobar el comportamiento de gas ideal, se calcula el producto $f(p, v) = p \cdot v$. Sus derivadas parciales son:
+
+$$\frac{\partial f}{\partial p} = v$$
+$$\frac{\partial f}{\partial v} = p$$
+
+Aplicando la fórmula de propagación y operando para extraer factor común, obtenemos la incertidumbre absoluta:
+
+$$\Delta(pv) = \sqrt{(v \Delta p)^2 + (p \Delta v)^2} = (pv) \sqrt{\left( \frac{\Delta p}{p} \right)^2 + \left( \frac{\Delta v}{v} \right)^2}$$
+
+\subsubsection*{b) Variables de linealización ($\ln p$ y $1/T$)}
+
+Para determinar el calor latente mediante la ecuación de Clapeyron-Clausius, se emplean los logaritmos de la presión y el inverso de la temperatura.
+
+Para $f(p) = \ln p$:
+$$\frac{\partial f}{\partial p} = \frac{1}{p} \implies \Delta(\ln p) = \frac{\Delta p}{p}$$
+
+Para $g(T) = \frac{1}{T}$:
+$$\frac{\partial g}{\partial T} = -\frac{1}{T^2} \implies \Delta\left(\frac{1}{T}\right) = \frac{\Delta T}{T^2}$$
+
+\subsubsection*{c) Constantes $a$ y $b$ de Van der Waals}
+
+A partir de los valores críticos estimados ($T_c, p_c$), se calculan las constantes del gas real:
+
+$$a = \frac{27 R^2 T_c^2}{64 p_c}, \quad b = \frac{R T_c}{8 p_c}$$
+
+Para la constante $a(T_c, p_c)$, las derivadas son:
+$$\frac{\partial a}{\partial T_c} = \frac{54 R^2 T_c}{64 p_c} = \frac{2a}{T_c}$$
+$$\frac{\partial a}{\partial p_c} = -\frac{27 R^2 T_c^2}{64 p_c^2} = -\frac{a}{p_c}$$
+$$\Delta a = a \sqrt{ \left( 2 \frac{\Delta T_c}{T_c} \right)^2 + \left( \frac{\Delta p_c}{p_c} \right)^2 }$$
+
+Para la constante $b(T_c, p_c)$:
+$$\frac{\partial b}{\partial T_c} = \frac{R}{8 p_c} = \frac{b}{T_c}$$
+$$\frac{\partial b}{\partial p_c} = -\frac{R T_c}{8 p_c^2} = -\frac{b}{p_c}$$
+$$\Delta b = b \sqrt{ \left( \frac{\Delta T_c}{T_c} \right)^2 + \left( \frac{\Delta p_c}{p_c} \right)^2 }$$
+
+\subsubsection*{d) Calor latente de vaporización ($L_v$)}
+
+El calor latente se obtiene de la pendiente $m$ del ajuste $\ln p = C - \frac{L_v}{R} \frac{1}{T}$. Siendo $L_v = -m \cdot R$:
+
+$$\Delta L_v = \sqrt{ (-R \Delta m)^2 } = R \cdot \Delta m$$
+
+
+% Referencias
+% Incluye las referencias bibliográficas en el archivo references.bib
+\nocite{*}
+\printbibliography
+\end{document}
