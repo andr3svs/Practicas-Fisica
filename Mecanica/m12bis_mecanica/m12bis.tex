@@ -1,0 +1,182 @@
+%====================================================%
+% Mechanics Laboratory Report Template               %
+% Experiment: M12bis                                 %
+%====================================================%
+
+\documentclass[a4paper,11pt]{article}
+
+% --- Preamble ---
+\usepackage[a4paper,top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{siunitx} % Essential for physics units
+\usepackage{hyperref}
+\usepackage[style=numeric,sorting=none]{biblatex}
+
+% Settings for hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=magenta,
+    pdftitle={Mechanics Laboratory Report - M12bis},
+}
+
+% --- Document Metadata ---
+\newcommand{\experimentTitle}{Mechanical Rutherford Scattering}
+\newcommand{\experimentDate}{April 4, 2026}
+\newcommand{\authorName}{Andrés Vinuesa Espinosa and Jose María Martínez Herrada}
+\newcommand{\groupNumber}{B2.2}
+
+\title{\textbf{Experiment M12bis: \experimentTitle}}
+\author{\authorName \\ Group \groupNumber}
+\date{Date of Experiment: \experimentDate}
+
+%====================================================%
+% DOCUMENT CONTENT
+%====================================================%
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    % GUIDELINE: Summarize the purpose, the physical system studied (e.g., a pendulum or a mass-spring system in a potential well), 
+    % the methodology used (e.g., video analysis with Tracker), and the primary numerical results (e.g., damping constant, frequency).
+    Summarize the experimental objectives, the methodology employed, and the most significant quantitative findings here.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction and Objectives}
+% GUIDELINE: Briefly explain the physics behind the experiment. 
+% Mention the model being tested (e.g., Newton's Second Law for a damped oscillator).
+The primary objective of this experiment is to study the mechanical scattering of particles, specifically focusing on the behavior of a projectile particle interacting with a target particle in a Rutherford-like potential. The experiment aims to:
+In the first part, we first discuss qualitatively the trajectories in function of the initial energy, then we quantitatively analyze the scattering process by measuring the trajectories of the particles under various initial conditions, determining the interaction constant of the hill-like structure, from now on the hill and the true position of the center of forces.
+In the second part, we will discuss the behavior of the system when the projectile particle is launched into a potential well, analyzing the resulting trajectories and comparing them with theoretical predictions.
+
+
+\section{Results and Data Analysis}
+
+\subsection{Anaylsis of the Hill Scattering}
+% GUIDELINE: Include the main plot showing the damping.
+% Figure \ref{fig:damped_oscillation} illustrates the experimental position vs. time data. 
+% (Humano: Actualiza la referencia de arriba si descomentas alguna de las figuras de abajo, 
+% por ejemplo a \ref{fig:trayectorias_todas} o \ref{fig:trayectoria_1})
+
+% --- GUÍA PARA EL USUARIO: Descomenta las imágenes que desees incluir ---
+% Puedes usar figuras individuales o combinarlas en una subfigura.
+
+% --- Opción: Trayectorias individuales ---
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.8\textwidth]{trayectorias_experimentales_1.png}
+  \caption{Trayectoria experimental 1.}
+  \label{fig:trayectoria_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=0.8\textwidth]{trayectorias_experimentales_2.png}
+   \caption{Trayectoria experimental 2.}
+   \label{fig:trayectoria_2}
+ \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{trayectorias_experimentales_pozo.png}
+%     \caption{Trayectoria experimental en el pozo.}
+%     \label{fig:trayectoria_pozo}
+% \end{figure}
+
+% --- Opción: Todas las trayectorias combinadas (usando subfigure) ---
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}[b]{0.48\textwidth}
+%         \includegraphics[width=\textwidth]{trayectorias_experimentales_1.png}
+%         \caption{Trayectoria 1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.48\textwidth}
+%         \includegraphics[width=\textwidth]{trayectorias_experimentales_2.png}
+%         \caption{Trayectoria 2}
+%     \end{subfigure}
+%     \\[\baselineskip]
+%     \centering
+%     \begin{subfigure}[b]{0.6\textwidth}
+%         \includegraphics[width=\textwidth]{trayectorias_experimentales_pozo.png}
+%         \caption{Trayectoria en el pozo}
+%     \end{subfigure}
+%     \caption{Conjunto de trayectorias experimentales obtenidas.}
+%     \label{fig:trayectorias_todas}
+% \end{figure}
+
+% GUIDELINE: Present the fit parameters with their respective uncertainties.
+The experimental data was fitted to the following theoretical model:
+\begin{equation}
+    x(t) = A e^{-\gamma t} \cos(\omega t + \phi) + C
+\end{equation}
+The results of the non-linear least squares fit are summarized in Table \ref{tab:fit_results}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        Parameter & Symbol & Value \\
+        \midrule
+        Amplitude & $A$ & \num{0.00(0)} \unit{m} \\
+        Damping Coefficient & $\gamma$ & \num{0.00(0)} \unit{s^{-1}} \\
+        Angular Frequency & $\omega$ & \num{0.00(0)} \unit{rad/s} \\
+        Phase & $\phi$ & \num{0.00(0)} \unit{rad} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Parameters obtained from the fit of the damped oscillation.}
+    \label{tab:fit_results}
+\end{table}
+
+\subsection{Potential Well Analysis (Pozo)}
+% GUIDELINE: Discuss the results obtained from files like '1pozo.txt' or '4pozo.txt'.
+% If you generated energy plots or phase space plots, include them here.
+The dynamics within the potential well were analyzed using the data from the \texttt{*pozo.txt} files. 
+
+\section{Discussion}
+% GUIDELINE: Interpret the results. Compare the experimental $\omega$ with the theoretical $\omega_0 = \sqrt{k/m}$.
+% Discuss sources of error (parallax, frame rate, friction modeling).
+The observed damping coefficient $\gamma$ suggests that the system is [underdamped/overdamped]. The discrepancy between the theoretical and experimental values of [Parameter] is approximately \num{0}\%, which can be attributed to [e.g., non-linear drag effects].
+
+\section{Conclusions}
+% GUIDELINE: State whether the objectives were met. 
+% Reflect on the validity of the damped oscillator model for this specific setup.
+The experiment successfully characterized the [Physical System]. The use of video analysis proved to be an effective method for capturing high-frequency dynamics...
+
+\appendix
+\section{Uncertainty Analysis}
+% GUIDELINE: Detail the calculation of uncertainties for indirect measurements.
+% Mention the resolution of the video (pixels/meter) and time resolution (fps).
+The uncertainty in position $\sigma_x$ was estimated based on the pixel-to-meter calibration scale, while $\sigma_t$ depends on the camera's frame rate ($1/\text{fps}$).
+
+\section{Raw Data and Supplementary Tables}
+% GUIDELINE: Include representative tables of raw data if required.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        $t$ (\unit{s}) & $x$ (\unit{m}) \\
+        \midrule
+        0.00 & 0.00 \\
+        ... & ... \\
+        \bottomrule
+    \end{tabular}
+    \caption{Sample of raw data from file \texttt{1.4.txt}.}
+\end{table}
+
+\printbibliography
+
+\end{document}

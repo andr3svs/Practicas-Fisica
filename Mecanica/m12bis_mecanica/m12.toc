@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction and Objectives}{2}{section.1}%
+\contentsline {section}{\numberline {2}Experimental Methodology}{2}{section.2}%
+\contentsline {section}{\numberline {3}Results and Data Analysis}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Damped Oscillation Analysis}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Potential Well Analysis (Pozo)}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Discussion}{3}{section.4}%
+\contentsline {section}{\numberline {5}Conclusions}{3}{section.5}%
+\contentsline {section}{\numberline {A}Uncertainty Analysis}{3}{appendix.A}%
+\contentsline {section}{\numberline {B}Raw Data and Supplementary Tables}{3}{appendix.B}%
