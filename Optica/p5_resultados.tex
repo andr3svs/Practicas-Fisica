@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\\title{Pr\'actica de \'optica: medidas del microscopio}
+\date{}
+
+\begin{document}
+\maketitle
+
+Las incertidumbres indicadas corresponden a la combinaci\'on de las
+incertidumbres de tipo A y B usadas en el script. Los resultados se
+escriben como valor nominal(incertidumbre).
+
+\begin{table}[ht]
+\centering
+\caption{Medidas obtenidas}
+\begin{tabular}{lcc}
+	oprule
+Magnitud & Valor & Unidad \\\\
+\midrule
+Microscopio 1 & 5(0.001) & mm\\
+Microscopio 2 & 145(0.001) & mm \\
+Micr\'ometro 1 & 31.5(0.0005) & mm\\
+Micr\'ometro 2 & 20(0.0005) & mm \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El aumento del microscopio se obtiene mediante
+\[
+M = \frac{d_{\mathrm{microscopio}}}{d_{\mathrm{micr\'ometro}}}.
+\]
+
+\begin{table}[ht]
+\centering
+\caption{Aumento del microscopio}
+\begin{tabular}{lcc}
+	oprule
+Magnitud & Valor & Unidad \\\\
+\midrule
+Aumento 1 & 0.1587(3.2e-05) & --\\
+Aumento 2 & 7.25(0.00019) & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

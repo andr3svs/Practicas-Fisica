@@ -6,6 +6,10 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{booktabs}
+<<<<<<< HEAD
+=======
+\usepackage{siunitx}
+>>>>>>> c4b7d17 (supercipotes)
 \usepackage{float}
 \usepackage{microtype}
 \usepackage{newtxtext,newtxmath}
@@ -25,7 +29,11 @@
 \begin{document}
 
 \title{M33. Interferences in the Quincke Tube}
+<<<<<<< HEAD
 \author{Andrés Vinuesa Espinosa and José María Martínez Herrada}
+=======
+\author{Andrés Vinuesa Espinosa}
+>>>>>>> c4b7d17 (supercipotes)
 \maketitle
 
 \begin{abstract}
@@ -58,6 +66,7 @@ where $n$ is a relative ordinal, $c$ is the speed of sound, and $f$ is the frequ
 \section{Materials and Methods}
 
 \subsection{Experimental Setup}
+<<<<<<< HEAD
 The experimental apparatus used to study acoustic interference consists of the following components:
 \begin{itemize}
     \item \textbf{Quincke Tube:} A hollow metallic tube split into two branches of lengths $a$ and $b$. Branch $a$ is fixed, while branch $b$ contains a movable arm that allows changing its length.
@@ -135,6 +144,20 @@ Figure \ref{fig:oscilloscope} shows the raw signals observed on the oscilloscope
     \label{fig:oscilloscope}
 \end{figure}
 
+=======
+The setup includes a Quincke tube with a movable arm, a speaker as a sound source connected to a function generator, and a microphone connected to a voltmeter or oscilloscope.
+
+\subsection{Data Acquisition and Analysis}
+Two main experiments were performed:
+\begin{enumerate}
+    \item \textbf{Experiment A/B}: Frequencies corresponding to maxima and minima were identified for a fixed tube configuration ($a \approx b$).
+    \item \textbf{Experiment C}: The sound amplitude (voltage) was recorded as a function of the arm displacement $\Delta d$ for a fixed frequency $f = 1576$ Hz.
+\end{enumerate}
+The speed of sound $c$ was determined by fitting the positions of maxima and minima in Experiment C to the linear relation $\Delta d(n)$.
+
+\section{Results and Data Analysis}
+
+>>>>>>> c4b7d17 (supercipotes)
 \subsection{Voltage vs Frequency}
 The experimental results for the transmitted sound intensity as a function of frequency are displayed in Figure \ref{fig:v_vs_f}.
 
@@ -168,6 +191,7 @@ The detected peaks (maxima) and troughs (minima) from Experiment C were used to 
 
 The resulting values for the speed of sound are:
 \begin{itemize}
+<<<<<<< HEAD
     \item \textbf{From Maxima}: $c = 380.54 \pm 0.85\,\mathrm{m/s}$
     \item \textbf{From Minima}: $c = 374.02 \pm 1.20\,\mathrm{m/s}$
 \end{itemize}
@@ -175,6 +199,15 @@ The resulting values for the speed of sound are:
 The theoretical speed of sound at $\theta = 27.5\,^{\circ}\mathrm{C}$ (equivalent to $T = 300.65\,\mathrm{K}$) is calculated as:
 \begin{equation}
     c_{theory} = 331.3 \sqrt{1 + \frac{\theta}{273.15}} = 331.3 \sqrt{\frac{300.65}{273.15}} = 347.58\pm0.29,\mathrm{m/s}
+=======
+    \item \textbf{From Maxima}: $c = \qty{380.54 \pm 0.85}{\unit{m/s}}$
+    \item \textbf{From Minima}: $c = \qty{374.02 \pm 1.2}{\unit{m/s}}$
+\end{itemize}
+
+The theoretical speed of sound at $\theta = \qty{27.5}{^\circ C}$ (equivalent to $T = \qty{300.65}{K}$) is calculated as:
+\begin{equation}
+    c_{theory} = 331.3 \sqrt{1 + \frac{\theta}{273.15}} = 331.3 \sqrt{\frac{300.65}{273.15}} = \qty{347.58}{\unit{m/s}}
+>>>>>>> c4b7d17 (supercipotes)
 \end{equation}
 
 The relative differences between the experimental and theoretical values are:
@@ -183,6 +216,7 @@ The relative differences between the experimental and theoretical values are:
     \item \textbf{Minima}: 7.61 \%
 \end{itemize}
 
+<<<<<<< HEAD
 \subsection{Determination of the Characteristic Length ($a$)}
 According to the theoretical model for a closed tube (Equation 3), the resonance frequencies $f_n$ are linearly dependent on the mode order $n$:
 \begin{equation}
@@ -294,5 +328,13 @@ Rounding to two significant figures for the uncertainty and matching the decimal
 \begin{equation}
     a = 1.77 \pm 0.38\,\mathrm{m}
 \end{equation}
+=======
+\section{Discussion and Conclusions}
+% [HUMAN AUTHOR: WRITE DISCUSSION/CONCLUSIONS HERE]
+
+\appendix
+\section{Uncertainty Analysis}
+The uncertainty in voltage $u_V$ was calculated as $5\%$ of the reading plus an instrumental offset of $0.001 \unit{V}$. The uncertainty in frequency $u_f$ was estimated as $5\%$ of the set value. For the distance $\Delta d$, a fixed uncertainty of $0.1 \unit{cm}$ was assumed based on the scale of the movable arm. The uncertainty in the fitted speed of sound was derived from the variance of the weighted linear fit through the origin.
+>>>>>>> c4b7d17 (supercipotes)
 
 \end{document}

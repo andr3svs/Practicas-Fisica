@@ -9,7 +9,10 @@
 \usepackage{siunitx}
 \usepackage{caption}
 \usepackage{subcaption}
+<<<<<<< HEAD
 \usepackage{placeins}
+=======
+>>>>>>> c4b7d17 (supercipotes)
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
@@ -23,7 +26,11 @@
 \def\tituloPractica{Característica resistencia-temperatura de un termistor}
 
 \title{Práctica \numeroPractica: \tituloPractica}
+<<<<<<< HEAD
 \author{Andrés Vinuesa Espinosa y José María Martínez Herrada}
+=======
+\author{Andrés}
+>>>>>>> c4b7d17 (supercipotes)
 \date{\today}
 
 \begin{document}
@@ -43,8 +50,13 @@ El objetivo de esta práctica es determinar la relación experimental entre la r
 \subsection{Cálculo analítico a partir de dos puntos}
 Se han seleccionado dos puntos de referencia para realizar un cálculo preliminar de los parámetros $A$ y $B$:
 \begin{itemize}
+<<<<<<< HEAD
     \item $T_1 = 353.15 \pm 0.10\,\mathrm{K}$, $R_1 = 1.25 \pm 0.22\,\mathrm{k\Omega}$
     \item $T_2 = 273.25 \pm 0.10\,\mathrm{K}$, $R_2 = 31.50 \pm 0.58\,\mathrm{k\Omega}$
+=======
+    \item $T_1 = \qty{353.15 \pm 0.10}{K}$, $R_1 = \qty{1.25 \pm 0.22}{k\Omega}$
+    \item $T_2 = \qty{273.25 \pm 0.10}{K}$, $R_2 = \qty{31.50 \pm 0.58}{k\Omega}$
+>>>>>>> c4b7d17 (supercipotes)
 \end{itemize}
 
 A partir de la solución analítica del sistema de ecuaciones:
@@ -53,8 +65,13 @@ A partir de la solución analítica del sistema de ecuaciones:
 \end{equation}
 Se han obtenido los siguientes valores:
 \begin{itemize}
+<<<<<<< HEAD
     \item $A = 2.0 \pm 1.6\times 10^{-5}\,\mathrm{k\Omega}$
     \item $B = 3890 \pm 210\,\mathrm{K}$
+=======
+    \item $A = \qty{2.0 \pm 1.6e-5}{k\Omega}$
+    \item $B = \qty{3890 \pm 210}{K}$
+>>>>>>> c4b7d17 (supercipotes)
 \end{itemize}
 Este método proporciona una estimación inicial de los parámetros, pese a que es ampliamente suscepctible a errores, debido a que
 solo se toman dos medidas, este método proporciona una buena estimación de parámetros para así obtener un buen punto de partida para el algoritmo
@@ -70,12 +87,19 @@ Se ha representado el logaritmo de la resistencia en función de la inversa de l
     \label{fig:logvst}
 \end{figure}
 
+<<<<<<< HEAD
 Los datos experimentales utilizados en el ajuste se recogen en la Tabla~\ref{tab:datos_experimentales} del anexo.
 
 Posteriormente, se ha realizado un ajuste no lineal mediante el método de Ortogonal Distance Regression (ODR) sobre la relación $R = A e^{B/T}$, considerando errores en ambas variables. Los parámetros obtenidos del ajuste son:
 \begin{itemize}
     \item $A = 1.59 \pm 0.08\times 10^{-5}\,\mathrm{k\Omega}$
     \item $B = 3973 \pm 14\,\mathrm{K}$
+=======
+Posteriormente, se ha realizado un ajuste no lineal mediante el método de Ortogonal Distance Regression (ODR) sobre la relación $R = A e^{B/T}$, considerando errores en ambas variables. Los parámetros obtenidos del ajuste son:
+\begin{itemize}
+    \item $A = \qty{1.59 \pm 0.08e-5}{k\Omega}$
+    \item $B = \qty{3973 \pm 14}{K}$
+>>>>>>> c4b7d17 (supercipotes)
     \item Coeficiente de determinación $R^2 = 0.999876$
 \end{itemize}
 
@@ -86,6 +110,7 @@ Por ejemplo, una de las posibles limitaciones del modelo teórico es que no cons
 lo cual podría modificar esta relación entre resistencia y temperatura, por ende es de vital importancia considerar que los resultados obtenidos en esta práctica
 solamente son válidos para el rango de temperaturas estudiado, y no se pueden extrapolar a temperaturas extremas sin realizar un análisis más detallado.
 \subsection{Medición de temperatura}
+<<<<<<< HEAD
 Al comparar los parámetros característicos obtenidos en los apartados anteriores, observamos que los valores son compatibles entre sí, ya que se solapan dentro de los márgenes de error. Sin embargo, el ajuste ODR proporciona una precisión mucho mejor. Para el parámetro $A$, el cálculo analítico da un valor de $A = (2,0 \pm 1,6) \times 10^{-5} \text{ k}\Omega$, con un error relativo altísimo, mientras que el ajuste nos da un resultado de $A = (1,59 \pm 0,08) \times 10^{-5} \text{ k}\Omega$. Lo mismo ocurre con el parámetro $B$, que pasa de $B = (3890 \pm 210) \text{ K}$ en el cálculo de dos puntos a $B = (3973 \pm 14) \text{ K}$ en el ajuste. Esto nos confirma la mayor precisión que tiene el ajuste respecto al método analítico.
 
 Para mirar si son buenos nuestros resultados, sumergiremos el termistor en un baño de agua a temperatura ambiente y mediremos su resistencia. Usaremos la siguiente ecuación para determinar la temperatura del agua a partir de dicha resistencia:
@@ -110,10 +135,24 @@ Los resultados obtenidos demuestran que es mejor el método de ajuste en términ
 Por otro lado, la aplicación práctica de estas constantes en la ecuación termométrica para determinar la temperatura del agua del grifo ratificó la fiabilidad del ajuste. Aunque ambos métodos arrojaron resultados compatibles con la temperatura ambiente del laboratorio, los parámetros del ajuste proporcionaron una medida notablemente más precisa y con menor incertidumbre experimental ($(22.4\pm1.5)\text{ }^{\circ}\text{C}$). Usando las constantes obtenidas por el otro método nos da una temperatura de $21.4\pm2.3$ que es compatible con la temperatura ambiente, pero con una incertidumbre mucho mayor.
 
 
+=======
+Para contrastar nuestros hallazgos, sumergiremos el termistor en un baño de agua a temperatura ambiente, y mediremos su resistencia, para así comparar el valor medido con el valor predicho por el modelo, y así verificar la validez del mismo.
+usaremos la siguiente ecuación para calcular la temperatura del agua a partir de la resistencia medida:
+\begin{equation}
+    T = \frac{B}{\ln(R/A)}
+\end{equation}
+Una vez realizado el cálculo, se ha obtenido una temperatura de \qty{21.4 \pm 2.3}{\degreeCelsius}, lo cual corresponde a una temperatura de \qty{22.35 \pm 1.5}{\degreeCelsius}, lo cual es razonable para la temperatura ambiente del laboratorio.
+
+\section{Conclusiones}
+% [HUMAN AUTHOR: ESCRIBE LAS CONCLUSIONES AQUÍ]
+% Resume los aspectos más relevantes y reflexiona sobre los resultados obtenidos.
+Esto es una geminada chema, pon tu algo
+>>>>>>> c4b7d17 (supercipotes)
 \appendix
 \section{Anexos}
 
 \subsection{Tablas de datos}
+<<<<<<< HEAD
 
 \begin{table}[ht!]
     \centering
@@ -129,11 +168,30 @@ Por otro lado, la aplicación práctica de estas constantes en la ecuación term
     40.0 & 313.15 & 0.10 & 5.13 & 0.26 \\
     45.0 & 318.15 & 0.10 & 4.20 & 0.25 \\
     50.0 & 323.15 & 0.10 & 3.46 & 0.24 \\
+=======
+En la Tabla~\ref{tab:datos_experimentales} GEMINADAAA REVISAR se muestran los valores medidos de temperatura y resistencia con sus respectivas incertidumbres.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{S[table-format=2.1] S[table-format=3.2] S[table-format=1.2] S[table-format=2.2] S[table-format=1.3]}
+    \toprule
+    {Temp. (\unit{\degreeCelsius})} & {Temp. (\unit{K})} & {$u_T$ (\unit{K})} & {Resistencia (\unit{k\Omega})} & {$u_R$ (\unit{k\Omega})} \\
+    \midrule
+    5.0 & 278.15 & 0.10 & 25.25 & 0.503 \\
+    20.0 & 293.15 & 0.10 & 12.26 & 0.347 \\
+    25.0 & 298.15 & 0.10 & 9.81 & 0.318 \\
+    30.0 & 303.15 & 0.10 & 7.80 & 0.294 \\
+    35.0 & 308.15 & 0.10 & 6.32 & 0.276 \\
+    40.0 & 313.15 & 0.10 & 5.13 & 0.262 \\
+    45.0 & 318.15 & 0.10 & 4.20 & 0.250 \\
+    50.0 & 323.15 & 0.10 & 3.46 & 0.242 \\
+>>>>>>> c4b7d17 (supercipotes)
     \bottomrule
     \end{tabular}
     \caption{Datos experimentales de temperatura y resistencia medidos.}
     \label{tab:datos_experimentales}
 \end{table}
+<<<<<<< HEAD
 \FloatBarrier
 
 \subsection{Análisis de Incertidumbres}
@@ -206,5 +264,12 @@ PeakTech, \emph{Manual de instrucciones Multímetro Digital PeakTech 2005}. Disp
 
 \end{thebibliography}
 
+=======
+
+\subsection{Análisis de Incertidumbres}
+hacer esto me ha dado una pereza q flipas xd menciona el manual este del polimetro
+https://www.denver.es/wp-content/uploads/2018/01/PeakTech_2005_100817_ES.pdf
+y saca las cosas de ahí, como la incertidumbre de la resistencia medida, que es el 0.08 del valor medido, y la incertidumbre de la temperatura, que es de 0.1 K, y luego menciona que estas incertidumbres se han propagado a través de las fórmulas para obtener las incertidumbres finales de los parámetros A y B, así como de la temperatura calculada del baño de agua.
+>>>>>>> c4b7d17 (supercipotes)
 
 \end{document}
