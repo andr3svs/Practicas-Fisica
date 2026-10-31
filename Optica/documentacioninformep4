@@ -1,0 +1,16 @@
+En primer lugar, he calculado las incertidumbres, tomando las tres partes con separado y usando una de tipo a (instrumental)
+diferente para cada una
+31/10 
+16:00 cambio ddof=1
+Decido estudiar cad parte por separado, sacar el resultado, y luego hacer la media con los resultados, Raul Rica
+comento una vez que era importante hacerlo asi, no recuerdo porque exactamente, pero tomo ese criterio
+Obtengo los siguientes valores para lambda:
+
+lambda parte 1: 577(87), 594(95), 569(92)
+Promedio parte 1: 580(53)
+
+lambda parte 2: 693(33), 808(33), 750(33)
+Promedio parte 2: 750(39)
+
+lambda parte 3: 4.9(1.4)e+02, 5.1(1.3)e+02, 5.0(1.5)e+02
+Promedio parte 3: 501(81) (es recalcable que por azar esta parte sale bien)

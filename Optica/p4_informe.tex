@@ -1,0 +1,136 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1.5cm,top=1.2cm,bottom=1.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\setstretch{1.15}
+
+\bibliographystyle{apsrev}
+\setcounter{secnumdepth}{3}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14pt}
+\setlength{\footskip}{14pt}
+
+\begin{document}
+
+\title{Determinacion de la longitud de onda mediante un biprisma de Fresnel}
+\author{Practicas de Optica}
+\maketitle
+
+\begin{abstract}
+Se determina experimentalmente la longitud de onda de la luz mediante un biprisma
+de Fresnel. El analisis utiliza las distancias medidas entre las fuentes virtuales
+y la pantalla, junto con la separacion entre franjas. Se propagan las incertidumbres
+tipo A y tipo B mediante la biblioteca \texttt{uncertainties}. Los resultados se
+comparan con el valor teorico de $589\,\mathrm{nm}$.
+\end{abstract}
+
+\section{Introduccion y objetivos}
+
+\subsection{Fundamento teorico}
+El biprisma produce dos fuentes virtuales coherentes separadas una distancia $d$.
+Si $D$ es la distancia desde las fuentes virtuales hasta la pantalla y $s$ es la
+separacion entre franjas consecutivas, la longitud de onda se obtiene mediante
+\begin{equation}
+\lambda = \frac{s d}{D}.
+\end{equation}
+Para la geometria empleada, la distancia entre las fuentes virtuales se calcula
+como
+\begin{equation}
+d = \sqrt{d'_1 d'_2},
+\end{equation}
+con $d'_1$ y $d'_2$ las distancias medidas desde la lente a las imagenes virtuales.
+La distancia $D$ se obtiene de
+\begin{equation}
+D = f'\left(2 - \frac{d^2 + {d'_1}^2}{d d'_1}\right).
+\end{equation}
+
+% Example equations block (replace with experiment-specific model)
+\subsection{Metodologia de medida}
+Se midieron tres valores de $s$, $d'_1$ y $d'_2$ en cada parte del experimento.
+En las partes 1 y 2 se uso una distancia focal $f'=0.15\,\mathrm{m}$, mientras
+que en la parte 3 se uso $f'=0.20\,\mathrm{m}$. En las partes 2 y 3, $s$ representa
+una interfranja; en la parte 1 se midieron tres interfranjas, por lo que se uso
+$\lambda=s d/(3D)$.
+
+\section{Materiales y metodos}
+
+\subsection{Montaje experimental}
+El montaje esta formado por una fuente de luz de sodio, un biprisma de Fresnel,
+una lente convergente y una pantalla de observacion. Las posiciones se registraron
+en unidades de $10^{-6}\,\mathrm{m}$, tal como se introdujeron en el script de analisis.
+
+\subsection{Adquisicion y analisis de datos}
+Los datos se introdujeron en los arrays de \texttt{p4.py}. La incertidumbre de
+cada magnitud se calculo combinando en cuadratura una contribucion instrumental
+tipo B y la incertidumbre estadistica tipo A, $u_A=s/\sqrt{n}$, usando la desviacion
+estandar muestral ($\mathrm{ddof}=1$). Las incertidumbres se propagaron con
+\texttt{unumpy}.
+
+\section{Resultados y analisis de datos}
+
+\subsection{Resultados de la longitud de onda}
+La Tabla~\ref{tab:lambda} resume los resultados obtenidos para cada medida.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Parte} & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ \\
+\midrule
+Parte 1 & $577\pm87$ & $594\pm95$ & $569\pm92$ \\
+Parte 2 & $693\pm33$ & $808\pm33$ & $750\pm33$ \\
+Parte 3 & $491\pm130$ & $508\pm122$ & $505\pm146$ \\
+\bottomrule
+\end{tabular}
+\caption{Longitudes de onda individuales en nm.}
+\label{tab:lambda}
+\end{table}
+
+\subsection{Promedios}
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\toprule
+\textbf{Parte} & \textbf{Promedio de $\lambda$ (nm)} \\
+\midrule
+Parte 1 & $580\pm53$ \\
+Parte 2 & $750\pm39$ \\
+Parte 3 & $501\pm81$ \\
+\bottomrule
+\end{tabular}
+\caption{Promedios calculados combinando la dispersion entre medidas y sus incertidumbres propagadas.}
+\label{tab:promedios}
+\end{table}
+
+El valor teorico de referencia es $\lambda_\mathrm{teo}=589\,\mathrm{nm}$.
+El resultado de la primera parte, $580\pm53\,\mathrm{nm}$, es compatible con
+este valor dentro de la incertidumbre experimental.
+
+\section{Discusion y conclusiones}
+La primera parte presenta el mejor acuerdo con el valor teorico de la fuente de
+sodio. Las diferencias entre las partes 2 y 3 pueden deberse a la sensibilidad
+de $D$ frente a las distancias medidas y a la incertidumbre relativamente grande
+de la mirilla usada en la tercera parte. La propagacion con \texttt{unumpy} incluye
+las incertidumbres de $s$, $d'_1$ y $d'_2$ en $d$, $D$ y $\lambda$.
+
+\begin{equation}
+\lambda_1 = (580\pm53)\,\mathrm{nm}, \qquad
+\lambda_2 = (750\pm39)\,\mathrm{nm}, \qquad
+\lambda_3 = (501\pm81)\,\mathrm{nm}.
+\end{equation}
+
+\end{document}
