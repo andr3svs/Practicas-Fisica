@@ -13,9 +13,10 @@
 \usepackage{mathpazo}
 \usepackage{setspace}
 \usepackage{fancyhdr}
+\usepackage[colorlinks=true, citecolor=blue, linkcolor=blue, urlcolor=blue]{hyperref}
 \setstretch{1.15}
 
-\bibliographystyle{apsrev}
+\bibliographystyle{unsrt}
 \setcounter{secnumdepth}{3}
 \pagestyle{fancy}
 \fancyhf{}
@@ -27,12 +28,26 @@
 
 \begin{document}
 
-\title{Coupled Oscillations: Analysis of Symmetric and Asymmetric Modes}
-\author{Andrés Vinuesa Espinosa \and Jose María Martínez Herrada}
+\title{Difracción de electrones}
+\author{Andrés Vinuesa Espinosa \and Miguel Ángel Montero Gómez}
 \maketitle
 
 \begin{abstract}
-This report analyzes coupled oscillations in a rigid bar connected to two springs. Frequency-response measurements were used to identify the natural, symmetric, and asymmetric modes of motion and to characterize mode splitting due to coupling. A superposition experiment was also examined to recover the slow and fast components of the composite signal. The results are consistent with the expected normal-mode behavior of a linear two-degree-of-freedom oscillator.
+En este trabajo se estudia la difracción de electrones en una muestra de
+grafito policristalino para comprobar la hipótesis de De Broglie. A partir de
+los potenciales de aceleración se calcularon las longitudes de onda de los
+electrones y se analizaron los radios de los anillos de difracción. La
+dependencia aproximadamente lineal del radio con $1/\sqrt{V}$ es compatible
+con la predicción teórica, aunque las discrepancias en las pendientes y en
+la identificación de los anillos muestran la influencia de las limitaciones
+geométricas y de la incertidumbre experimental. Finalmente, se compararon
+distintas combinaciones de órdenes de difracción y distancias interplanares
+para identificar los anillos observados.
+Cosas que faltan
+Como el guion va por partes no se si hacer un analisis global o de partes, veo mejor hacerlo de partes
+Meter alguna referencia de un libro
+Refinar la explicacion extra
+revisar todo para pillar gazapos.
 \end{abstract}
 
 \section{Fundamento Teórico}
@@ -55,6 +70,7 @@ Según la ley de Bragg, el haz de electrones al comportarse como una onda se dif
 de grafito policristalino depositada sobre una red de cobre.
 \begin{equation}
     n\lambda = 2d\sin\theta
+    \label{eq:bragg}
 \end{equation}
 En el grafito policristalino, los planos están orientados aleatoriamente, provocando que el haz de electrones
 se difracte en forma de cono, provocando anillos de interferencia.
@@ -84,8 +100,7 @@ Se puede concluir entonces, que el número de los anillos que en la práctica pu
 Esto tiene las siguientes implicaciones:
 \begin{itemize}
     \item Solo podemos ver los primeros 2 anillos de difracción.
-    \item El orden de estos anillos es 1; el orden 0 se considera el haz de
-    electrones que no se difracta.
+    \item El orden de los anillos que podemos ver se limitan al primero y al segundo orden de difracción.
 \end{itemize}
 
 La primera afirmación se justifica considerando un potencial de
@@ -93,6 +108,7 @@ La primera afirmación se justifica considerando un potencial de
 de difracción, aumenta proporcionalmente el radio previsto; por ello, los
 órdenes superiores pueden quedar fuera de la zona observable de la pantalla.
 En este análisis se consideran principalmente los anillos de primer orden.
+
 \subsection{Medida}
 En este proceso se presentaron varias anomalías que se describen a continuación:
 En el centro de la pantalla se presenta un punto brillante, correspondiente al haz de electrones, alrededor de este punto
@@ -106,7 +122,10 @@ Creemos que esta es la principal fuente de error en la medida, y que puede ser r
 
 Por último, se ha observado que para una distancia interplanar del grafito, se pueden tener varios órdenes de difraccion,
 esto hace que observar diferentes anillos sea una tarea más díficl ya que podríamos estar teninedo órdenes de otras distancias interferiendo en la medida.
-
+Esto se hace más evidente al comprobar que cuando aumentamos el voltaje, el radio de algunas medidas fluctuaba sin tener una tendencia clara en algunas medidas,
+esto puede deberse a un error en la medida, debido a la falta de intensidad de los anillos, que hacía díficl discenir el borde.
+Otra posible explicación es que en algunas medieramos un anillo de difracción en lugar de otro, aunque esto es poco probable, ya que la variación con el voltaje no es 
+muy signficitativa.
 
 \section{Resultados}
 \subsubsection{Verificacion de la hipotesis de De Broglie}
@@ -147,6 +166,7 @@ El ajuste lineal proporciona los siguientes parámetros:
 Como el valor de \(R^2\) es cercano a 1, se puede concluir que es bastante probable que exista una relación lineal ambas variables, lo cual
 apoya la validez de la hipótesis de De Broglie. 
 
+
 \subsubsection{Obtencion de la segunda distancia interplanar}
 También se comprobaron distintas combinaciones de orden de difracción y
 distancia interplanar utilizando
@@ -155,56 +175,13 @@ distancia interplanar utilizando
     \frac{2Rn}{d}\frac{h}{\sqrt{2m_e eV}}.
 \end{equation}
 Se consideraron los órdenes \(n=1,2,3,4\) y los valores
-\(d=\SI{123}{pm}\) y \(d=\SI{213}{pm}\). Como criterio de comparación se
-utilizó el error cuadrático medio entre los radios medidos y los radios
-predichos.
- Si se impone que ambos
-anillos proceden del mismo espaciamiento \(d=\SI{213}{pm}\) y tienen órdenes
-distintos, se obtienen las dos posibilidades siguientes:
-\begin{table}[H]
-    \centering
-    \caption{Comparación de las dos asignaciones posibles de los órdenes.}
-    \begin{tabular}{lcc}
-        \toprule
-        Asignación & \(n\) de \texttt{radius1} & \(n\) de \texttt{radius2} \\
-        \midrule
-        Original & 1 & 2 \\
-        Intercambiada & 2 & 1 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-La asignación original presenta un error conjunto de aproximadamente
-\SI{15.7}{mm}, mientras que la asignación intercambiada presenta un error
-conjunto de aproximadamente \SI{8.25}{mm}. Por tanto, si se fuerza la
-hipótesis de que ambos anillos corresponden al mismo \(d\) pero a órdenes
-distintos, la asignación menos desfavorable es
-\[
-    \texttt{radius1}\longrightarrow n=2,
-    \qquad
-    \texttt{radius2}\longrightarrow n=1.
-\]
-Sin embargo, esta hipótesis tampoco describe bien los datos. Para un mismo
-valor de \(d\), la teoría predice
-\[
-    \frac{r_{n=2}}{r_{n=1}}=2,
-\]
-mientras que los datos proporcionan una razón media
-\(r_{\texttt{radius1}}/r_{\texttt{radius2}}\simeq1.40\). Además, los errores
-medios relativos son aproximadamente \(-45.4\,\%\) para
-\texttt{radius1} como \(n=2\) y \(-21.9\,\%\) para \texttt{radius2} como
-\(n=1\).
-
-También se consideró la hipótesis alternativa en la que ambos anillos
-corresponden al primer orden, pero a distancias interplanares diferentes.
-Para respetar la relación inversa entre radio y distancia interplanar, se
-asignó la distancia menor al radio mayor:
-\[
-    \texttt{radius1}\longrightarrow d_2=\SI{123}{pm},\ n=1,
-    \qquad
-    \texttt{radius2}\longrightarrow d_1=\SI{213}{pm},\ n=1.
-\]
-La comparación de ambas hipótesis se resume en la tabla~\ref{tab:hypotheses}.
+\(d=\SI{123}{pm}\) y \(d=\SI{213}{pm}\). 
+Consideramos dos hipótesis para los datos obtenidos: La primera, que se tratasen de distinto orden de la misma distancia interplanar, 
+y la segunda, que se tratasen de un mismo orden de difracción pero con dos distancias interplanares distintas.
+La comparación de ambas hipótesis se resume en la tabla~\ref{tab:hypotheses}. Donde el error RMS conjunto se define como:
+\begin{equation}
+    \text{RMS}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(r_{\text{medido},i}-r_{\text{teorico},i})^2}
+\end{equation}
 
 \begin{table}[H]
     \centering
@@ -220,18 +197,101 @@ La comparación de ambas hipótesis se resume en la tabla~\ref{tab:hypotheses}.
         \bottomrule
     \end{tabular}
 \end{table}
-Donde el error RMS conjunto se define como:
-\begin{equation}
-    \text{RMS}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(r_{\text{medido},i}-r_{\text{teorico},i})^2}
-\end{equation}
+En el ajuste de los dos anillos como órdenes distintos se obtuvieron
+\(d_{\text{exterior}}=\SI{186.1}{pm}\) y
+\(d_{\text{interior}}=\SI{266.2}{pm}\).
+ Comparados con los valores teóricos
+\(d_2=\SI{123}{pm}\) y \(d_1=\SI{213}{pm}\), respectivamente, las
+diferencias son de \SI{63.1}{pm} y \SI{53.2}{pm}. Por tanto, aunque esta
+asignación conserva el orden esperado entre las distancias, los valores
+obtenidos presentan discrepancias apreciables.
+
+\subsubsection{Analisis de Resultados}
 
 Con este criterio, la hipótesis de dos distancias interplanares diferentes
 describe mejor los datos: reduce el error RMS conjunto de
 \SI{8.25}{mm} a \SI{6.00}{mm}. La mejora es apreciable, aunque el error
 relativo sigue siendo aproximadamente del \SI{31}{\percent}, por lo que
 ninguna de las dos hipótesis puede considerarse una confirmación cuantitativa
-del modelo. Además, el resultado depende de la identificación de cada anillo
-y de la precisión con la que se hayan medido sus radios.
+del modelo. 
+Motivos diversos pueden causar esta discrepancia, serán a continuación enumerados por su plausibilidad:
+\begin{itemize}
+    \item La medida de los radios de los anillos es difícil, y puede ser
+    que se hayan cometido errores sistemáticos al medir los radios de los
+    anillos, especialmente en el caso del anillo exterior, que es más débil. 
+    Es decir, al ser el anillo una circunferencia borrosa, es díficil discernir donde esta el borde pese a que el calibre sea bastante preciso. Esto es especialmente notorio
+    en el caso del anillo exterior, que es más débil, y el que menos concuerda con el valor teórico.
+    \item Algún defecto en la lámina de grafito por exposición a altos voltajes puede haber alterado el experimento.
+    \item La distancia interplanar del grafito puede variar, debido a alguna modificación interna de la muestra.
+\end{itemize}
+
+Y además debemos considerar que los instrumentos de medida no son óptimos y
+tienen tolerancias relativamente altas. En particular, el calibre no puede
+adaptarse a la curvatura de la pantalla y los anillos no presentan siempre
+un borde bien definido. Por ello, la incertidumbre instrumental indicada no
+recoge completamente la dificultad de identificar el centro y el borde de
+cada anillo; esta contribución adicional puede explicar parte de la
+dispersión residual observada.
+
+
+Finalmente, se debe declarar, que aunque los resultados disten de manera considerables de los tabulados, se tiene que son físicamente factibles, ya
+que están en el orden de magntiud correcto, y no inducen a contradicciones físicas. Por lo que el experimento da una 
+explicación cualitativa aceptable del comportamiento ondulatorio de los electrones, y de la validez de la hipótesis de De Broglie.
+
+\subsection{Orden de Difracción para medidas superiores a 5kV}
+Para esta sección, usaremos datos teóricos proporcionados por el guion de prácticas
+de la asignatura~\cite{guioncuantica2026}.
+Aunque el guion propone que usemos la ecuación de Bragg~\eqref{eq:bragg}, para cada valor por separado, nosotros nos hemos 
+decantado por usar el método de ajuste de curvas, usando mínimos cuadrados no lineales. Esto nos permite usar directamente el modelo con arcoseno, 
+que evita aproximaciones de ángulos pequeños, problemáticas en los anillos exteriores ya que forman más de 10 grados con el haz central. Para el ajuste se utilizó
+la función \texttt{curve\_fit} de SciPy~\cite{scipycurvefit}.
+Para el anillo $r_3$ se obtuvieron los siguientes valores de la distancia
+interplanar al probar los distintos órdenes:
+\begin{table}[H]
+    \centering
+    \caption{Distancias interplanares obtenidas para el anillo \(r_3\).}
+    \begin{tabular}{cc}
+        \toprule
+        Orden \(n\) & Distancia obtenida \\
+        \midrule
+        1 & \SI{50.01}{pm} \\
+        2 & \SI{90.82}{pm} \\
+        3 & \SI{136.00}{pm} \\
+        4 & \SI{181.00}{pm} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+De todos estos valores, el que está más cercano a las distancias tabuladas
+es el correspondiente a $n=2$, que se identifica con el segundo orden de
+difracción asociado a $d_3=\SI{80.5}{pm}$.
+
+Para $r_4$, siguiendo el mismo procedimiento, se obtienen:
+\begin{table}[H]
+    \centering
+    \caption{Distancias interplanares obtenidas para el anillo \(r_4\).}
+    \begin{tabular}{cc}
+        \toprule
+        Orden \(n\) & Distancia obtenida \\
+        \midrule
+        1 & \SI{28.94}{pm} \\
+        2 & \SI{57.88}{pm} \\
+        3 & \SI{86.82}{pm} \\
+        4 & \SI{115.75}{pm} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+De todos estos valores, el que más encaja con el valor tabulado es el
+correspondiente a $n=2$, que es casi idéntico al valor tabulado
+$d_4=\SI{59.1}{pm}$.
+\subsection{Actividad Extra}
+Las partículas no pueden ser fotones, ya que la longitud de onda del fotón viene dada por $\frac{h}{p}$ y, usando la ecuación de Bragg~\eqref{eq:bragg}~\cite{bragg1915}, se obtiene
+que r=2R/dn*h/v, es decir una constante, independiente del voltaje, lo cual vemos que no es el caso.
+Si las partículas fueran neutrones, no adquirirían experimentarían fuerza alguna al ser somativas al campo electrico, por ende su momento p sería constante.
+Esto implica que r=2R/dn*h/p, es decir una constante, independiente del voltaje, lo cual vemos que no es el caso.
+Por tanto las partículas deben ser electrones, ya que son las únicas que cumplen con la relación de De Broglie y la ley de Bragg.
+Podrìan ser positrones, o protones, la primera no es el caso ya que sabemos que en un catodo a energías cotidianas no podemos generar antimateria sin que sea instantaneamente anquilida.
+Y si fuera un protón, su masa es 1836 veces mayor que la del electrón, por lo que su longitud de onda sería mucho menor, y el radio de los anillos mucho mayor, lo cual no es el caso,
+ya que comparando con \cite{tonomura1989demonstration} vemos que los radios de los anillos son del mismo orden de magnitud, por lo que no pueden ser protones.
 
 \bibliography{biblio}
 \end{document}

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import optimize
 from scipy.stats import linregress
 
 # Datos: voltaje en V y radio en mm, convertido después a m.
@@ -83,3 +84,45 @@ plt.title("Radio vs $\\frac{1}{\\sqrt{V}}$")
 plt.legend()
 plt.grid()
 plt.show()
+# Section 2 Fitear d
+# esto lo hecho con un script rapido con gpt, en resumen, si no te coges los ultimos voltages para r2 es que no sale absolutamente nada
+
+# Section 3 Tabla
+potencial_tabla = np.array([6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000])
+radios3_tabla = np.array([22.0, 20.9, 20.4, 19.7, 18.4, 18.2, 17.2, 17.0]) * 1e-3
+radios_4_tabla = np.array([27.9, 26.6]) * 1e-3
+
+potencial_tabla_4 = np.array([9500, 10000])
+
+
+def modelo_radio(voltage, d):
+    n = 4  # orden de difraccion
+    wavelength = h / np.sqrt(2 * electron_mass * electron_charge * voltage)
+
+    argumento = n * wavelength / (2 * d)
+
+    return R * np.sin(2 * np.arcsin(argumento))
+
+
+# la funcion deberia devolve el radio teorico r, ahora dandole r como datos (Y) y voltaje (X)
+# n es mas sencillo pasarselo a la funcion de busqueda porque en el curvefit es mas lioso
+# va a buscar los d que mejor se ajusten
+parametros, covarianza = optimize.curve_fit(
+    modelo_radio,
+    potencial_tabla,  # entrada
+    radios3_tabla,  # salida
+    p0=[80.5e-12],
+    bounds=(50e-12, 500e-12),
+)
+print("Parámetros encontrados:", parametros)
+print("Valor de d:", parametros[0] * 1e12, "pm")
+print("Covarianza:", covarianza)
+# mismo pero con r4
+parametros4, covarianza4 = optimize.curve_fit(
+    modelo_radio,
+    potencial_tabla_4,  # entrada
+    radios_4_tabla,  # salida
+    p0=[59.1e-12],
+    bounds=(10e-13, 500e-12),
+)
+print("Parámetros encontrados para r4:", parametros4[0] * 1e12, "pm")
