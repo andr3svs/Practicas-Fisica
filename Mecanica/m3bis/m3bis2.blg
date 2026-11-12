@@ -1,14 +1,12 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99e (TeX Live 2026/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: m3bis2.aux
-Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: apsrev.bst
-Reallocating 'name_of_file' (item size: 1) to 7 items.
 I found no \citation commands---while reading file m3bis2.aux
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: biblio.bib
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 You've used 0 entries,
             3411 wiz_defined-function locations,
             1152 strings with 10002 characters,
